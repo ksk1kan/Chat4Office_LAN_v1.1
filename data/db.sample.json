@@ -1,0 +1,10 @@
+{
+  "users": [],
+  "messages": [],
+  "notes": [],
+  "activity": [],
+  "settings": {
+    "officeName": "Chat4Office",
+    "soundUrl": "/notify.wav"
+  }
+}

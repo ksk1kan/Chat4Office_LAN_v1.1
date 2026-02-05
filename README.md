@@ -5,6 +5,7 @@ Bu sürümde:
 - ✅ Not/hatırlatma okundu bilgisi
 - ✅ "Bitir" yapan kişi kapatır + kim bitirdiği loglanır
 - ✅ Not silme: sadece oluşturan kişi + admin
+- ✅ “data/db.json repo’ya konmaz. İlk kurulumda db.sample.json’u kopyalayıp db.json yapın.” gibi.
 
 ## Kurulum (Windows)
 PowerShell'de `npm` engeli alırsan en kolayı **CMD** kullanmak.
@@ -23,7 +24,5 @@ Admin panel: /admin.html
 
 ## Ses
 En stabil yöntem:
-- `public/sounds/notify.wav` dosyasını değiştir
-- Admin panelde Ses URL: `/sounds/notify.wav`
-
-YouTube linki tarayıcı kısıtlarına takılabilir. Bu yüzden varsayılan WAV daha stabil.
+- `public/notify.wav` dosyasını değiştir
+- Admin panelde Ses URL: `/notify.wav`

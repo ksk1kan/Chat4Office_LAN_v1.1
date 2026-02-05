@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="tr"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Chat4Office</title><link rel="stylesheet" href="/app.css"/>
+</head><body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">
+      <div style="font-weight:700" id="officeName">Chat4Office</div>
+      <span class="badge" id="meBadge">...</span>
+    </div>
+    <div class="row">
+      <button class="btn small" id="btnSound">🔇 Sesli uyarıyı etkinleştir</button>
+      <a class="btn small" href="/admin.html" id="adminLink" style="display:none;text-decoration:none;">🛠 Admin</a>
+      <button class="btn small" id="btnLogout">Çıkış</button>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="panel">
+      <h3>Personel <span class="pill" id="onlineCount">0 online</span></h3>
+      <div class="list" id="usersList"></div>
+    </div>
+
+    <div class="panel chat">
+      <div class="chatHeader">
+        <div>
+          <div class="chatTitle" id="chatTitle">Bir kişi seç</div>
+          <div class="smallMuted" id="chatSub">Sol listeden personel seçerek DM başlat.</div>
+        </div>
+        <div class="row"><span class="badge" id="chatStatus">offline</span></div>
+      </div>
+      <div class="chatLog" id="chatLog"></div>
+      <div class="chatComposer">
+        <input id="chatInput" class="input" placeholder="Mesaj yaz..." disabled/>
+        <button id="btnSend" class="btn primary" disabled>Gönder</button>
+      </div>
+    </div>
+
+    <div class="panel" id="rightPanel">
+      <h3>Notlar & Hatırlatmalar <button class="btn small primary" id="btnNewNote">+ Ekle</button></h3>
+      <div class="tabs">
+        <div class="tab active" data-tab="open">Açık</div>
+        <div class="tab" data-tab="done">Tamamlanan</div>
+        <div class="tab" data-tab="created">Benim</div>
+      </div>
+      <div class="list" id="notesList"></div>
+    </div>
+  </div>
+</div>
+
+<div class="modalBack" id="modalBack">
+  <div class="modal">
+    <div class="modalHeader">
+      <div id="modalTitle">Not / Hatırlatma</div>
+      <button class="btn small" id="modalClose">Kapat</button>
+    </div>
+    <div class="modalBody">
+      <div class="smallMuted" style="margin-bottom:8px;">Hatırlatma istiyorsan tarih-saat seç.</div>
+      <textarea id="noteText" class="input" rows="5" placeholder="Yapılan iş / yapılacak iş / hatırlatma..."></textarea>
+      <div class="grid2" style="margin-top:10px;">
+        <div>
+          <div class="smallMuted" style="margin-bottom:6px;">Kime?</div>
+          <select id="noteAssignees" class="input" multiple size="6"></select>
+          <div class="smallMuted" style="margin-top:6px;">(Ctrl ile çoklu seçim)</div>
+        </div>
+        <div>
+          <div class="smallMuted" style="margin-bottom:6px;">Hatırlatma Tarih/Saat (opsiyonel)</div>
+          <input id="noteDue" type="datetime-local" class="input"/>
+          <div class="row" style="margin-top:10px;">
+            <label class="row" style="gap:6px;cursor:pointer;">
+              <input type="checkbox" id="noteImportant"/> <span>⭐ Önemli</span>
+            </label>
+          </div>
+          <div class="smallMuted" style="margin-top:10px;">Ses URL admin panelden ayarlanır.</div>
+        </div>
+      </div>
+    </div>
+    <div class="modalFooter">
+      <button class="btn danger" id="btnDeleteNote" style="display:none;">Sil</button>
+      <button class="btn primary" id="btnSaveNote">Kaydet</button>
+    </div>
+  </div>
+</div>
+
+<div class="modalBack" id="remBack">
+  <div class="modal">
+    <div class="modalHeader">
+      <div>⏰ Hatırlatma</div>
+      <button class="btn small" id="remClose">Kapat</button>
+    </div>
+    <div class="modalBody">
+      <div id="remText" class="noteText"></div>
+      <div class="smallMuted" id="remMeta" style="margin-top:10px;"></div>
+      <div class="smallMuted" style="margin-top:10px;">Sesi susturmak için Ertele veya Bitir.</div>
+    </div>
+    <div class="modalFooter">
+      <button class="btn" data-snooze="5">Ertele 5 dk</button>
+      <button class="btn" data-snooze="10">Ertele 10 dk</button>
+      <button class="btn" data-snooze="30">Ertele 30 dk</button>
+      <button class="btn" data-snooze="60">Ertele 1 saat</button>
+      <button class="btn primary" id="btnDone">Bitir</button>
+    </div>
+  </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/app.js"></script>
+</body></html>

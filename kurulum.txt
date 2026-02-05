@@ -1,0 +1,74 @@
+CMD aç (Başlat → cmd)
+Şunu yaz:
+
+node -v
+
+
+Sürüm geliyorsa tamam.
+
+“node tanınmıyor” diyorsa Node.js kurulu değil → kurman lazım.
+
+3) Projeyi çalıştır
+
+CMD’de proje klasörüne gir:
+
+Örnek (dosyayı Masaüstüne açtıysan):
+
+cd %USERPROFILE%\Desktop\Chat4Office_LAN_v1.1
+
+
+Sonra:
+
+npm install
+
+
+Bitince:
+
+npm start
+
+
+CMD’de şu tarz bir şey görmen lazım:
+Chat4Office running on http://localhost:3000
+
+4) Tarayıcıdan aç
+
+Sunucu PC:
+
+http://localhost:3000/login.html
+
+Diğer ofis PC’leri:
+
+Sunucu PC’de IP’yi öğren:
+
+ipconfig
+
+
+“IPv4 Address” örn: 192.168.1.50
+
+Diğer PC’den aç:
+
+http://192.168.1.50:3000/login.html
+
+5) İlk giriş
+
+Kullanıcı: admin
+
+Şifre: admin1234
+
+Girişten sonra:
+
+Admin panel: http://192.168.1.50:3000/admin.html
+
+Buradan kullanıcı ekle/sil, şifre sıfırla, ses URL ayarla.
+
+6) Sesli uyarı (hatırlatma çalması)
+
+Kullanıcı tarafında üstte:
+
+“🔇 Sesli uyarıyı etkinleştir” butonuna 1 kez bas → tarayıcı izin verir.
+
+YouTube linki bazen autoplay yüzünden sorun çıkarabilir. En sağlamı:
+
+public/sounds/notify.wav dosyasını istediğin sesle değiştirip
+
+Admin panelde Ses URL: /sounds/notify.wav bırakmak.

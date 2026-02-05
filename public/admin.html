@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="tr"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Chat4Office - Admin</title><link rel="stylesheet" href="/app.css"/>
+</head><body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand"><div style="font-weight:700">🛠 Admin Panel</div><span class="badge">Chat4Office</span></div>
+    <div class="row">
+      <a class="btn small" href="/index.html" style="text-decoration:none;">← Uygulama</a>
+      <button class="btn small" id="btnLogout">Çıkış</button>
+    </div>
+  </div>
+
+  <div class="main" style="grid-template-columns: 1fr 1fr;">
+    <div class="panel">
+      <h3>Kullanıcılar</h3>
+      <div style="padding:12px;border-bottom:1px solid var(--border);">
+        <div class="grid2">
+          <input id="newUsername" class="input" placeholder="Kullanıcı adı (ör: muhasebe)"/>
+          <input id="newDisplay" class="input" placeholder="Görünen ad (ör: Muhasebe)"/>
+        </div>
+        <div class="grid2" style="margin-top:10px;">
+          <input id="newPassword" class="input" placeholder="Şifre" type="password"/>
+          <select id="newRole" class="input"><option value="user">user</option><option value="admin">admin</option></select>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:10px;align-items:center;">
+          <button class="btn primary" id="btnAdd">+ Kullanıcı Ekle</button>
+          <div class="smallMuted" id="msg"></div>
+        </div>
+      </div>
+      <div class="list" id="userList"></div>
+    </div>
+
+    <div class="panel">
+      <h3>Ayarlar & Aktivite</h3>
+      <div style="padding:12px;border-bottom:1px solid var(--border);">
+        <div class="smallMuted" style="margin-bottom:6px;">Ofis adı</div>
+        <input id="officeName" class="input" placeholder="Chat4Office"/>
+        <div class="smallMuted" style="margin:12px 0 6px;">Ses URL (öneri: /sounds/notify.wav)</div>
+        <input id="soundUrl" class="input" placeholder="/sounds/notify.wav"/>
+        <div style="display:flex;gap:10px;margin-top:12px;align-items:center;">
+          <button class="btn primary" id="btnSave">Kaydet</button>
+          <div class="smallMuted" id="saveMsg"></div>
+        </div>
+        <div class="smallMuted" style="margin-top:10px;">
+          YouTube linki her zaman stabil değildir. En garanti: <span class="kbd">public/sounds/notify.wav</span> dosyasını değiştir.
+        </div>
+      </div>
+      <div class="list" id="activityList"></div>
+    </div>
+  </div>
+</div>
+<script src="/admin.js"></script>
+</body></html>
